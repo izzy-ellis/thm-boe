@@ -1,3 +1,10 @@
+badchars = ""
 for x in range(1, 256):
-	print("\\x" + "{:02x}".format(x), end="")
-print()
+	badchars += ("\\x" + "{:02x}".format(x))
+
+excludes = input("Enter badchars to exclude (csv format): ")
+
+for exclude in excludes.split(","):
+	badchars = badchars.replace(exclude, "")
+
+print(badchars)
