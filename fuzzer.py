@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import socket, time. sys
+import socket, time, sys
 
 ip = "IP_ADDR"
 
@@ -16,11 +16,11 @@ while True:
 		s.settimeout(timeout)
 		s.connect((ip, port))
 		s.recv(1024)
-		print("Fuzzing with {} bytes".format(len(string) – len(prefix)))
-		s.send(bytes(string, “latin-1”))
+		print("Fuzzing with {} bytes".format(len(string) - len(prefix)))
+		s.send(bytes(string, "latin-1"))
 		s.recv(1024)
 	except:
-		print("Fuzzing crashed at {} bytes".format(len(string) – len(prefix)))
+		print("Fuzzing crashed at {} bytes".format(len(string) - len(prefix)))
 		sys.exit(0)
 	string += 100 * "A"
 	time.sleep(1)
